@@ -14,9 +14,10 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Cetagory</span>
-          <Link className="link link-hover">Android</Link>
-          <Link className="link link-hover">Windows Phone</Link>
-          <Link className="link link-hover">I-Phone</Link>
+          <Link className="link link-hover">Samsung</Link>
+          <Link className="link link-hover">Vivo</Link>
+          <Link className="link link-hover">Oppo</Link>
+          <Link className="link link-hover">Realmi</Link>
         </div>
         <div>
           <span className="footer-title">Legal</span>
