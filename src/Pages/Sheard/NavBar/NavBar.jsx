@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MobileHatLogo from "../../../Assects/logo.png";
 import { FaCogs, FaHeart, FaRegUserCircle, FaPowerOff } from "react-icons/fa";
+import { AuthContext } from "../../../Context/UserContext";
 
 const NavBar = () => {
+  const { user } = useContext(AuthContext);
+
   const menuItems = (
     <>
       <li>
@@ -128,37 +131,51 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+          <div>
+            {user ? (
+              <>
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user.photoURL} alt={user.displayName} />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link>
+                        <FaRegUserCircle></FaRegUserCircle>
+                        {user.displayName}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/dashboard">
+                        <FaCogs></FaCogs>
+                        Dashboard
+                      </Link>
+                    </li>
 
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt="" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link>
-                  <FaRegUserCircle></FaRegUserCircle>
-                  User Name
+                    <li>
+                      <Link>
+                        <FaPowerOff></FaPowerOff>
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-sm btn-primary">
+                  Login
                 </Link>
-              </li>
-              <li>
-                <Link>
-                  <FaCogs></FaCogs>
-                  Dashboard
-                </Link>
-              </li>
-
-              <li>
-                <Link>
-                  <FaPowerOff></FaPowerOff>
-                  Logout
-                </Link>
-              </li>
-            </ul>
+              </>
+            )}
           </div>
         </div>
       </div>

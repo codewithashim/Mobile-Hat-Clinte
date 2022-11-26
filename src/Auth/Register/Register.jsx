@@ -15,6 +15,7 @@ const Register = () => {
     register,
     formState: { errors },
   } = useForm();
+
   const { registerUser, updateUserDetails, googleLogin } = useContext(
     AuthContext
   );
@@ -31,7 +32,6 @@ const Register = () => {
 
     registerUser(email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
         Swal.fire(
@@ -42,10 +42,11 @@ const Register = () => {
         const profileInfo = {
           displayName: data.fullname,
           photoURL: data.photoURL,
+          rols: data.rols,
         };
         updateUserDetails(profileInfo)
           .then(() => {
-            saveUserInDB(data.email, data.fullname, data.photoURL);
+            saveUserInDB(data.email, data.fullname, data.photoURL, data.rols);
           })
           .catch((error) => {
             console.log(error);
@@ -59,8 +60,8 @@ const Register = () => {
       });
   };
 
-  const saveUserInDB = (email, name, photoURL) => {
-    const user = { email, name, photoURL };
+  const saveUserInDB = (email, name, photoURL, rols) => {
+    const user = { email, name, photoURL, rols };
     console.log(user);
     fetch("http://localhost:8000/users", {
       method: "POST",
@@ -192,11 +193,23 @@ const Register = () => {
               </p>
             )}
           </div>
-          <div>
-          <div>
-            
-          </div>
-            
+
+          <div className="form-control mt-2">
+            <select
+              className="select w-full select-bordered"
+              {...register("rols", { required: true })}
+            >
+              <option disabled selected>
+                Select Your Rols
+              </option>
+              <option>Buyer</option>
+              <option>Shellar</option>
+            </select>
+            {errors.rols?.type === "required" && (
+              <p role="alert" className="text-red-600 mt-1">
+                Select Your Rols filde is required
+              </p>
+            )}
           </div>
           <div className="form-control mt-6">
             <input
@@ -207,7 +220,7 @@ const Register = () => {
           </div>
           <div className="p-2 text-center">
             <p>
-            Already Account Mobile Hat ?{" "}
+              Already Account Mobile Hat ?{" "}
               <Link className="text-secondary" to="/login">
                 Login
               </Link>

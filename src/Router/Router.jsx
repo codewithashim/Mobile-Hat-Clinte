@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
 import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
+import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 
 const route = createBrowserRouter([
   {
@@ -45,9 +46,17 @@ const route = createBrowserRouter([
     ],
   },
   {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      
+    ]
+  },
+  {
     path: "*",
     element: <NotFound></NotFound>,
   },
+
 ]);
 
 export default route;
