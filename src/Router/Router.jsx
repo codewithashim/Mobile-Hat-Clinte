@@ -5,6 +5,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
+import Product from "../Pages/Products/Products";
 
 const route = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/product",
+        element: <Product></Product>,
       },
       {
         path: "/contact",

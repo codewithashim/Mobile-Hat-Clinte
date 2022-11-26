@@ -23,7 +23,17 @@ const Banner = () => {
         <div id="item4" className="carousel-item w-full">
           <img src={Image4} alt="Slide 4" className="w-full" />
         </div>
-        <div className="absolute top-2/4 bottom-0 left-14 right-0 px-5">
+        <div
+          className="absolute top-2/4 bottom-0 left-14 right-0 px-5"
+          style={{
+            zIndex: "1",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            padding: "1rem",
+            borderRadius: "1rem",
+            width: "50%",
+            height: "calc(100% - 60%)",
+          }}
+        >
           <h1>
             <span className="text-5xl font-bold  text-white">
               Hey Welcome to
