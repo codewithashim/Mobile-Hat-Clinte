@@ -10,22 +10,22 @@ const NavBar = () => {
   const menuItems = (
     <>
       <li>
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link>Services</Link>
+        <Link to="/services">Services</Link>
       </li>
       <li>
-        <Link>Product</Link>
+        <Link to="/product">Product</Link>
       </li>
       <li>
-        <Link>About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <Link>Blogs</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link>Contact</Link>
+        <Link to="/contact">Contact</Link>
       </li>
     </>
   );
