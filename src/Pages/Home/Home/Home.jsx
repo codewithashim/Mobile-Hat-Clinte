@@ -1,6 +1,6 @@
 import React from "react";
 import AdvertisedItems from "../../AdvertisedItems/AdvertisedItems";
-import ProductsCetagory from "../../ProductsCetagory/ProductsCetagory";
+import Cetagorys from "../Cetagorys/Cetagorys";
 import Hero from "../Hero/Hero/Hero";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         <AdvertisedItems></AdvertisedItems>
       </section>
       <section>
-        <ProductsCetagory></ProductsCetagory>
+        <Cetagorys></Cetagorys>
       </section>
     </main>
   );

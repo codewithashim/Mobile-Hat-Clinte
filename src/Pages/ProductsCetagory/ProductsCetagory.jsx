@@ -1,6 +1,9 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const ProductsCetagory = () => {
+  const getCetagoryProducts = useLoaderData();
+  console.log(getCetagoryProducts);
   return (
     <section className="px-4">
       <div className="productCetagoryTitle py-2">

@@ -6,6 +6,7 @@ import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import Product from "../Pages/Products/Products";
+import ProductsCetagory from "../Pages/ProductsCetagory/ProductsCetagory";
 
 const route = createBrowserRouter([
   {
@@ -40,6 +41,13 @@ const route = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/category/:categoryName",
+        loader: ({ params }) => {
+          return fetch(`http://localhost:8000/category${params.categoryName}`);
+        },
+        element: <ProductsCetagory></ProductsCetagory>,
+      },
 
       {
         path: "*",
@@ -50,15 +58,12 @@ const route = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
-    children: [
-      
-    ]
+    children: [],
   },
   {
     path: "*",
     element: <NotFound></NotFound>,
   },
-
 ]);
 
 export default route;
