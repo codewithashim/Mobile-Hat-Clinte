@@ -7,6 +7,16 @@ import Register from "../Auth/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import Product from "../Pages/Products/Products";
 import ProductsCetagory from "../Pages/ProductsCetagory/ProductsCetagory";
+import Wishlish from "../Dasshboard/Wishlist/Wishlish";
+import MyOrder from "../Dasshboard/GenarelUser/MyOrder/MyOrder";
+import PrivetRoute from "./PrivetRoute";
+import Profile from "../Dasshboard/Profile/Profile";
+import AllBuyer from "../Dasshboard/Admin/AllBuyer/AllBuyer";
+import AllShellar from "../Dasshboard/Admin/AllShellar/AllShellar";
+import AllUser from "../Dasshboard/Admin/AllUser/AllUser";
+import AddProduct from "../Dasshboard/Shellar/AddProduct/AddProduct";
+import MyBuyer from "../Dasshboard/Shellar/MyBuyer/MyBuyer";
+import MyProduct from "../Dasshboard/Shellar/MyProduct/MyProduct";
 
 const route = createBrowserRouter([
   {
@@ -44,7 +54,7 @@ const route = createBrowserRouter([
       {
         path: "/category/:categoryName",
         loader: ({ params }) => {
-          return fetch(`http://localhost:8000/category${params.categoryName}`);
+          return fetch(`http://localhost:8000/category/${params.categoryName}`);
         },
         element: <ProductsCetagory></ProductsCetagory>,
       },
@@ -57,8 +67,49 @@ const route = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
-    children: [],
+    element: (
+      <PrivetRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivetRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/wishlist",
+        element: <Wishlish></Wishlish>,
+      },
+      {
+        path: "/dashboard/myorder",
+        element: <MyOrder></MyOrder>,
+      },
+      {
+        path: "/dashboard/allbuyer",
+        element: <AllBuyer></AllBuyer>,
+      },
+      {
+        path: "/dashboard/allshellar",
+        element: <AllShellar></AllShellar>,
+      },
+      {
+        path: "/dashboard/alluser",
+        element: <AllUser></AllUser>,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "/dashboard/mybuyer",
+        element: <MyBuyer></MyBuyer>,
+      },
+      {
+        path: "/dashboard/myproduct",
+        element: <MyProduct></MyProduct>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile></Profile>,
+      },
+    ],
   },
   {
     path: "*",

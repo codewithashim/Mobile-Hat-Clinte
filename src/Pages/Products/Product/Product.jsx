@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BookingModal from "../../BookingModal/BookingModal";
 
 const Product = ({ product }) => {
-  const {
-    product_name,
-    product_price,
-    category,
-    posting_time,
-    img,
-  } = product;
+  const {_id, product_name, product_price, category, posting_time, img } = product;
+
+  const HendlBookNow = () => {
+    console.log("book now");
+  };
+
   return (
     <>
       <div className="card m-4 bg-base-100 shadow-xl">
@@ -29,11 +29,25 @@ const Product = ({ product }) => {
             <div className="badge badge-outline">{category}</div>
             <p>Posting Time : {posting_time}</p>
             <div className="flex gap-2 items-center">
-              <Link className="btn btn-primary">Book Now</Link>
+              <div>
+                <label
+                  htmlFor="bookignModal"
+                  onClick={() => HendlBookNow()}
+                  // disabled={.length === 0}
+                  className="btn btn-primary"
+                >
+                  Book Now
+                </label>
+              </div>
+
               <Link className="btn btn-primary">Add Wishlist</Link>
             </div>
           </div>
         </div>
+        <BookingModal
+          key={_id}
+          product_name={product_name}
+        ></BookingModal>
       </div>
     </>
   );

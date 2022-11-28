@@ -10,8 +10,6 @@ const Cetagorys = () => {
       .then((data) => setCetagorys(data));
   }, []);
 
-  console.log(cetagorys);
-
   return (
     <section className="p-4">
       <div>

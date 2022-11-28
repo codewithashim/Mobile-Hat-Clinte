@@ -9,7 +9,7 @@ const Banner = () => {
     <>
       <div
         className="carousel w-full"
-        style={{ height: "90vh", objectFit: "cover" }}
+        style={{ height: "80vh", objectFit: "cover" }}
       >
         <div id="item1" className="carousel-item w-full">
           <img src={Image1} alt="Slide 1" className="w-full" />
@@ -23,30 +23,30 @@ const Banner = () => {
         <div id="item4" className="carousel-item w-full">
           <img src={Image4} alt="Slide 4" className="w-full" />
         </div>
-        <div
-          className="absolute top-2/4 bottom-0 left-14 right-0 px-5"
+        {/* <div
+          className="px-5"
           style={{
-            zIndex: "1",
+            zIndex: "-99999999",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             padding: "1rem",
             borderRadius: "1rem",
             width: "50%",
-            height: "calc(100% - 60%)",
+            height: "50%",
           }}
         >
           <h1>
-            <span className="text-5xl font-bold  text-white">
+            <span className="text-3xl font-bold  text-white">
               Hey Welcome to
             </span>{" "}
             <br />
-            <span className="text-5xl font-bold text-blue-500">
+            <span className="text-3xl font-bold text-blue-500">
               Mobile Hat !!
             </span>
           </h1>
           <p className="text-white mt-4">
             Shell Your Phone And Get The Best Price <br /> Form Clinte
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="flex justify-center w-full py-2 gap-2">
         <a href="#item1" className="btn btn-xs">
