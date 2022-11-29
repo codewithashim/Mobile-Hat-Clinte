@@ -64,7 +64,7 @@ const MyOrder = () => {
         <h1 className="font-bold text-2xl py-2">My Order</h1>
         <div className="divider"></div>
       </div>
-      <div className="orderContainer gird lg:grid-cols-3">
+      <div className="orderContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {myOrder.map((order) => {
           return (
             <AllOrder

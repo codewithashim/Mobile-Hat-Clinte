@@ -1,19 +1,43 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
+import Advatise from "./Advatise/Advatise";
+
 const AdvertisedItems = () => {
+  const { data: advatiseProduct = [], isLoading, refetch } = useQuery({
+    queryKey: ["apointmentOpction"],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:8000/advatise`);
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  console.log(advatiseProduct);
+
   return (
-    <section className="px-4">
-      <div className="advataiseTitle py-2">
-        <h1>
-          <span className="text-4xl font-bold text-blue-500">
-            Advertised Itmes
-          </span>{" "}
-        </h1>
-      </div>
-      <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
-      </div>
-    </section>
+    <>
+      {advatiseProduct?.length !== 0 && (
+        <>
+          <section className="p-6">
+            <div className="advataiseTitle py-2">
+              <h1>
+                <span className="text-4xl font-bold text-blue-500">
+                  Advertised Itmes
+                </span>{" "}
+              </h1>
+            </div>
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {advatiseProduct?.map((item) => {
+                  return <Advatise key={item?._id} item={item}></Advatise>;
+                })}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+    </>
   );
 };
 
