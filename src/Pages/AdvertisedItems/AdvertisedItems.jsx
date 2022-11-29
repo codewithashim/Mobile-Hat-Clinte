@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Loader from "../Sheard/Loader/Loader";
 
 import Advatise from "./Advatise/Advatise";
 
@@ -13,7 +14,9 @@ const AdvertisedItems = () => {
     },
   });
 
-  console.log(advatiseProduct);
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <>
@@ -27,10 +30,10 @@ const AdvertisedItems = () => {
                 </span>{" "}
               </h1>
             </div>
-            <div>
+            <div className="py-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {advatiseProduct?.map((item) => {
-                  return <Advatise key={item?._id} item={item}></Advatise>;
+                  return <Advatise key={item?._id} refetch={refetch} item={item}></Advatise>;
                 })}
               </div>
             </div>

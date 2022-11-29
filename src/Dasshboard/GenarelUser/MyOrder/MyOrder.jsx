@@ -31,7 +31,7 @@ const MyOrder = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // authorization: `Bearer ${user.accesToken}`,
+        authorization: `Bearer ${user.accesToken}`,
       },
       body: JSON.stringify(advatise),
     })
@@ -64,7 +64,7 @@ const MyOrder = () => {
         <h1 className="font-bold text-2xl py-2">My Order</h1>
         <div className="divider"></div>
       </div>
-      <div className="orderContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="orderContainer grid md:grid-cols-2 gap-4">
         {myOrder.map((order) => {
           return (
             <AllOrder
