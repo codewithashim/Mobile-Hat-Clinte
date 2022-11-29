@@ -3,9 +3,23 @@ import { Link } from "react-router-dom";
 import MobileHatLogo from "../../../Assects/logo.png";
 import { FaCogs, FaHeart, FaRegUserCircle, FaPowerOff } from "react-icons/fa";
 import { AuthContext } from "../../../Context/UserContext";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userLogout } = useContext(AuthContext);
+
+  const hendelLogout = () => {
+    userLogout()
+      .then(() => {
+        Swal.fire("Sucessfully Logout !", "You clicked the button!", "success");
+        localStorage.removeItem("accesToken");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        Swal.fire("OPPs Somthing Warn!", "You clicked the button!", "error");
+      });
+  };
 
   const menuItems = (
     <>
@@ -145,7 +159,7 @@ const NavBar = () => {
                     </li>
 
                     <li>
-                      <Link>
+                      <Link onClick={hendelLogout}>
                         <FaPowerOff></FaPowerOff>
                         Logout
                       </Link>

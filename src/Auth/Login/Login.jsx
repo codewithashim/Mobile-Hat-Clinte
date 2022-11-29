@@ -11,6 +11,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [loginUserEmail, setLoginUserEmail] = useState("");
+
   const [token] = useToken(loginUserEmail);
   const from = location?.state?.from?.pathname || "/";
 
@@ -31,7 +32,6 @@ const Login = () => {
         const user = userCredential.user;
         console.log(user);
         setLoginUserEmail(data.email);
-
         Swal.fire(
           "Succesfuly Login Done !",
           "You clicked the button!",
@@ -55,7 +55,6 @@ const Login = () => {
   const hendelGoogleLogin = () => {
     googleLogin(googleProvider)
       .then((result) => {
-        // The signed-in user info.
         const user = result.user;
         console.log(user);
         Swal.fire(

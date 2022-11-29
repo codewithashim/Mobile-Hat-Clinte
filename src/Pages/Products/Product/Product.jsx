@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BookingModal from "../../BookingModal/BookingModal";
 
-const Product = ({ product }) => {
+const Product = ({ product,refetch }) => {
   const {_id, product_name, product_price, category, posting_time, img } = product;
 
   const HendlBookNow = () => {
@@ -46,6 +46,8 @@ const Product = ({ product }) => {
         </div>
         <BookingModal
           key={_id}
+          product={product}
+          refetch={refetch}
           product_name={product_name}
         ></BookingModal>
       </div>

@@ -26,6 +26,22 @@ const Register = () => {
     navigate("/");
   }
 
+  const saveUserInDB = (email, name, photoURL, rols) => {
+    const user = { email, name, photoURL, rols };
+    console.log(user);
+    fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCreatedUserEmail(email);
+      });
+  };
+
   const hendelRegister = (data) => {
     console.log(data);
     const { email, password } = data;
@@ -56,23 +72,6 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
-      });
-  };
-
-  const saveUserInDB = (email, name, photoURL, rols) => {
-    const user = { email, name, photoURL, rols };
-    console.log(user);
-    fetch("http://localhost:8000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCreatedUserEmail(email);
       });
   };
 
@@ -82,12 +81,15 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        const rols = "Buyer";
+        if (!user.email) {
+          saveUserInDB(user.email, user.displayName, user.photoURL, rols);
+        } 
         Swal.fire(
           "Succesfuly Login Done !",
           "You clicked the button!",
           "success"
         );
-        saveUserInDB(user.displayName, user.email, user.photoURL);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -131,6 +133,7 @@ const Register = () => {
               </p>
             )}
           </div>
+
           <div className="form-control">
             <label className="label">
               <span className="label-text">Photo</span>

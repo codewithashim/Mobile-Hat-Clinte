@@ -4,7 +4,7 @@ import Product from "./Product/Product";
 import Loader from "../../Pages/Sheard/Loader/Loader";
 
 const Products = () => {
-  const { data: products = [], isLoading } = useQuery({
+  const { data: products = [], isLoading, refetch } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:8000/products`, {
@@ -28,7 +28,7 @@ const Products = () => {
       </div>
       <div className="productContainer grid lg:grid-cols-3 ">
         {products.map((product) => {
-          return <Product key={product._id} product={product}></Product>;
+          return <Product key={product._id} refetch={refetch} product={product}></Product>;
         })}
       </div>
     </section>
