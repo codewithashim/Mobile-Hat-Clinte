@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BookingModal from "../../BookingModal/BookingModal";
 
-const Product = ({ product,refetch }) => {
-  const {_id, product_name, product_price, category, posting_time, img } = product;
+const Product = ({ product, refetch }) => {
+  const {
+    _id,
+    product_name,
+    product_price,
+    category,
+    posting_time,
+    img,
+  } = product;
 
   const HendlBookNow = () => {
     console.log("book now");
@@ -33,13 +40,11 @@ const Product = ({ product,refetch }) => {
                 <label
                   htmlFor="bookignModal"
                   onClick={() => HendlBookNow()}
-                  // disabled={.length === 0}
                   className="btn btn-primary"
                 >
                   Book Now
                 </label>
               </div>
-
               <Link className="btn btn-primary">Add Wishlist</Link>
             </div>
           </div>

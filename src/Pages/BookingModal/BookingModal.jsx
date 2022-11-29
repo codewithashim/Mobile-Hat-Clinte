@@ -1,24 +1,37 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
-import Loader from "../Sheard/Loader/Loader";
+// import Loader from "../Sheard/Loader/Loader";
 
-const BookingModal = ({ product_name, refetch }) => {
+const BookingModal = ({ product_name, refetch, product }) => {
   const { user } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
+    const address = form.address.value;
+    const product = form.productName.value;
+    const date = new Date().toDateString();
+    const price = form.price.value;
 
-    const booking = {};
+    const booking = {
+      name,
+      email,
+      phone,
+      price,
+      metingAddress: address,
+      productName: product,
+      date,
+    };
 
     fetch("http://localhost:8000/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        // authorization: `Bearer ${user.accesToken}`,
       },
       body: JSON.stringify(booking),
     })
@@ -58,6 +71,7 @@ const BookingModal = ({ product_name, refetch }) => {
           </div>
           <h3 className="text-lg font-bold">{product_name}</h3>
           <div className="divider"></div>
+
           <form action="" onSubmit={handleSubmit}>
             <div>
               <input
@@ -79,6 +93,7 @@ const BookingModal = ({ product_name, refetch }) => {
               <input
                 type="text"
                 name="productName"
+                defaultValue={product_name}
                 disabled
                 placeholder="Product Name"
                 className="input input-bordered w-full m-2"
@@ -86,9 +101,21 @@ const BookingModal = ({ product_name, refetch }) => {
               <input
                 type="text"
                 name="price"
-                defaultValue={user?.name}
-                redonly
+                defaultValue={product?.product_price}
+                disabled
                 placeholder="Product Price"
+                className="input input-bordered w-full m-2"
+              />
+              <input
+                type="number"
+                name="phone"
+                placeholder="Your Phone Number"
+                className="input input-bordered w-full m-2"
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Meting Address"
                 className="input input-bordered w-full m-2"
               />
 

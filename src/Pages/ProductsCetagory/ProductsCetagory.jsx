@@ -5,7 +5,7 @@ import BookingModal from "../BookingModal/BookingModal";
 const ProductsCetagory = () => {
   const getCetagoryProducts = useLoaderData();
   const HendlBookNow = () => {
-    
+    console.log("book now");
   };
 
   return (
@@ -67,6 +67,7 @@ const ProductsCetagory = () => {
               </div>
               <BookingModal
                 key={_id}
+                product={product}
                 product_name={product_name}
               ></BookingModal>
             </div>
