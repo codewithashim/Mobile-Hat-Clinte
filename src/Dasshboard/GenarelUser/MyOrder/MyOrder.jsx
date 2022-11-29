@@ -21,19 +21,25 @@ const MyOrder = () => {
 
   // hendel advatise
   const hendelAdvatise = (id) => {
-    fetch("http://localhost:8000/bookings", {
+    const advatise = {
+      services: id,
+      email: user?.email,
+      product: myOrder,
+    };
+
+    fetch("http://localhost:8000/advatise", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // authorization: `Bearer ${user.accesToken}`,
       },
-      body: JSON.stringify(id),
+      body: JSON.stringify(advatise),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.sucess) {
           Swal.fire(
-            "Successfully Booked Now!",
+            "Successfully Advatise Now!",
             "You clicked the button!",
             "success"
           );
@@ -60,7 +66,13 @@ const MyOrder = () => {
       </div>
       <div className="orderContainer gird lg:grid-cols-3">
         {myOrder.map((order) => {
-          return <AllOrder key={order._id} order={order}></AllOrder>;
+          return (
+            <AllOrder
+              key={order._id}
+              order={order}
+              hendelAdvatise={hendelAdvatise}
+            ></AllOrder>
+          );
         })}
       </div>
     </section>

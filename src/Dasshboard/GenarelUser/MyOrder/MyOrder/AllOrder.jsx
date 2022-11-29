@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AllOrder = ({ order }) => {
-  const { productName, img, date, metingAddress, price, name } = order;
+const AllOrder = ({ order, hendelAdvatise }) => {
+  const { productName, img, date, metingAddress, price, name, _id } = order;
+
 
   return (
     <div className="card card-compact w-80 bg-base-100 shadow-xl">
@@ -16,7 +17,12 @@ const AllOrder = ({ order }) => {
         <p>Metting Address : {metingAddress}</p>
         <p>Order Date : {date}</p>
         <div className="card-actions justify-end">
-          <Link className="btn btn-primary btn-sm">Advertise</Link>
+          <Link
+            className="btn btn-primary btn-sm"
+            onClick={() => hendelAdvatise(_id)}
+          >
+            Advertise
+          </Link>
           <Link className="btn btn-primary btn-sm">Pay Now</Link>
         </div>
       </div>
