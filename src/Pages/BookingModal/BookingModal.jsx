@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
 // import Loader from "../Sheard/Loader/Loader";
 
-const BookingModal = ({ product_name, refetch, product }) => {
+const BookingModal = ({ product_name, refetch, product, img }) => {
   const { user } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
@@ -16,6 +16,7 @@ const BookingModal = ({ product_name, refetch, product }) => {
     const product = form.productName.value;
     const date = new Date().toDateString();
     const price = form.price.value;
+    const status = "Booked";
 
     const booking = {
       name,
@@ -25,6 +26,8 @@ const BookingModal = ({ product_name, refetch, product }) => {
       metingAddress: address,
       productName: product,
       date,
+      img,
+      status,
     };
 
     fetch("http://localhost:8000/bookings", {

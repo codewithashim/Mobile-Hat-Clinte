@@ -51,6 +51,7 @@ const Product = ({ product, refetch }) => {
         </div>
         <BookingModal
           key={_id}
+          img={img}
           product={product}
           refetch={refetch}
           product_name={product_name}

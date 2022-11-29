@@ -67,6 +67,7 @@ const ProductsCetagory = () => {
               </div>
               <BookingModal
                 key={_id}
+                img={img}
                 product={product}
                 product_name={product_name}
               ></BookingModal>
