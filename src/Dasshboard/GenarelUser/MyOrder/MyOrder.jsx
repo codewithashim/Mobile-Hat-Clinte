@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
-
   const { data: myOrder = [], isLoading, refetch } = useQuery({
     queryKey: ["myOrder"],
     queryFn: async () => {
