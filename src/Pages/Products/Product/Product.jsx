@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BookingModal from "../../BookingModal/BookingModal";
 
-const Product = ({ product, refetch }) => {
+const Product = ({ product, refetch, addtoWishList }) => {
   const {
     _id,
     product_name,
@@ -45,7 +45,12 @@ const Product = ({ product, refetch }) => {
                   Book Now
                 </label>
               </div>
-              <Link className="btn btn-primary">Add Wishlist</Link>
+              <Link
+                className="btn btn-primary"
+                onClick={() => addtoWishList(_id)}
+              >
+                Add Wishlist
+              </Link>
             </div>
           </div>
         </div>

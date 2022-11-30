@@ -39,12 +39,13 @@ const Advatise = ({ item, refetch }) => {
                 <div>
                   <label
                     htmlFor="bookignModal"
-                    // onClick={() => HendlBookNow()}
                     className="btn btn-primary btn-sm mx-2"
                   >
                     Book Now
                   </label>
-                  <Link className="btn btn-primary btn-sm">Buy Now</Link>
+                  <Link className="btn btn-primary btn-sm m-2">
+                    Add Wishlist
+                  </Link>
                 </div>
               </div>
 
