@@ -7,7 +7,7 @@ import Loader from "../../../Pages/Sheard/Loader/Loader";
 const Wishlish = () => {
   const { user } = useContext(AuthContext);
 
-  const { data: myWishList = [], isLoading, refetch } = useQuery({
+  const { data: myWishList = [], isLoading } = useQuery({
     queryKey: ["myWishList"],
     queryFn: async () => {
       const res = await fetch(
@@ -33,7 +33,6 @@ const Wishlish = () => {
       <div className="wishListContainer">
         {myWishList.map((wishList) => {
           const {
-            _id,
             name,
             price,
             productName,
