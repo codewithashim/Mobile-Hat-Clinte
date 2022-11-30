@@ -19,7 +19,6 @@ const Product = ({ product, refetch }) => {
   };
 
   const { user } = useContext(AuthContext);
-
   const addtoWishList = () => {
     const email = user?.email;
     const wishList = {
