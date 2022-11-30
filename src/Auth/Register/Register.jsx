@@ -72,11 +72,16 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${errorMessage}`,
+        });
       });
   };
 
   const googleProvider = new GoogleAuthProvider();
-  
+
   const hendelGoogleLogin = () => {
     googleLogin(googleProvider)
       .then((result) => {

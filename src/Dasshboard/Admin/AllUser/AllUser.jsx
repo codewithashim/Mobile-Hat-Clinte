@@ -55,6 +55,7 @@ const AllUser = () => {
             <thead>
               <tr>
                 <th></th>
+                <th>User Pic</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
