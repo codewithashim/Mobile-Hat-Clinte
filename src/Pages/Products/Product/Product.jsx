@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import BookingModal from "../../BookingModal/BookingModal";
 
-const Product = ({ product, refetch, addtoWishList }) => {
+const Product = ({ product, refetch }) => {
   const {
     _id,
     product_name,
@@ -14,6 +15,45 @@ const Product = ({ product, refetch, addtoWishList }) => {
 
   const HendlBookNow = () => {
     console.log("book now");
+  };
+
+  const addtoWishList = () => {
+    const wishList = {
+      productId: _id,
+      product_name,
+      product_price,
+      category,
+      posting_time,
+      img,
+    };
+
+    fetch(`http://localhost:8000/wishlist/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // authorization: `bearer ${localStorage.getItem("accesToken")}`,
+      },
+      body: JSON.stringify(wishList),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.sucess) {
+          Swal.fire(
+            "Successfully Booked Now!",
+            "You clicked the button!",
+            "success"
+          );
+          refetch();
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.message}`,
+          });
+        }
+      });
+    refetch();
+    console.log("add to wishlist");
   };
 
   return (
@@ -45,10 +85,7 @@ const Product = ({ product, refetch, addtoWishList }) => {
                   Book Now
                 </label>
               </div>
-              <Link
-                className="btn btn-primary"
-                onClick={() => addtoWishList(_id)}
-              >
+              <Link className="btn btn-primary" onClick={() => addtoWishList()}>
                 Add Wishlist
               </Link>
             </div>
