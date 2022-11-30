@@ -76,6 +76,7 @@ const Register = () => {
   };
 
   const googleProvider = new GoogleAuthProvider();
+  
   const hendelGoogleLogin = () => {
     googleLogin(googleProvider)
       .then((result) => {
@@ -199,8 +200,9 @@ const Register = () => {
 
           <div className="form-control mt-2">
             <select
+              name="role"
               className="select w-full select-bordered"
-              {...register("rols", { required: true })}
+              {...register("role", { required: true })}
             >
               <option disabled selected>
                 Select Your Rols
