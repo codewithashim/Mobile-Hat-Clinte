@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Context/UserContext";
 import BookingModal from "../../BookingModal/BookingModal";
 
 const Product = ({ product, refetch }) => {
@@ -17,11 +18,15 @@ const Product = ({ product, refetch }) => {
     console.log("book now");
   };
 
+  const { user } = useContext(AuthContext);
+
   const addtoWishList = () => {
+    const email = user?.email;
     const wishList = {
       productId: _id,
       product_name,
       product_price,
+      email,
       category,
       posting_time,
       img,

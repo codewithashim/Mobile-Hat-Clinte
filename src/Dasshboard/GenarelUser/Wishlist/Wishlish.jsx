@@ -11,7 +11,7 @@ const Wishlish = () => {
     queryKey: ["myWishList"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/bookings?email=${user?.email}`
+        `http://localhost:8000/wishlist?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -30,7 +30,7 @@ const Wishlish = () => {
         <h1 className="font-bold text-2xl py-2">My WishList</h1>
         <div className="divider"></div>
       </div>
-      <div className="wishListContainer">
+      <div className="wishListContainer grid md:grid-cols-2 gap-4">
         {myWishList.map((wishList) => {
           const {
             name,
@@ -54,7 +54,7 @@ const Wishlish = () => {
                 <p>Order Date : {date}</p>
                 <div className="card-actions justify-end">
                   <Link className="btn btn-primary btn-sm">Buye Now</Link>
-                  <Link className="btn btn-primary btn-sm">Pay Now</Link>
+                  <Link className="btn btn-primary btn-sm">Report </Link>
                 </div>
               </div>
             </div>

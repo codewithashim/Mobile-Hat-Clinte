@@ -2,9 +2,15 @@ import React from "react";
 
 const AddProduct = () => {
   return (
-    <div>
-      <h1>Add Product</h1>
-    </div>
+    <section>
+      <div>
+        <h1 className="font-bold text-2xl py-2">Add Product</h1>
+        <div className="divider"></div>
+      </div>
+      <div>
+        
+      </div>
+    </section>
   );
 };
 
