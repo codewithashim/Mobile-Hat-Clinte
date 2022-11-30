@@ -17,6 +17,10 @@ import AllUser from "../Dasshboard/Admin/AllUser/AllUser";
 import AddProduct from "../Dasshboard/Shellar/AddProduct/AddProduct";
 import MyBuyer from "../Dasshboard/Shellar/MyBuyer/MyBuyer";
 import MyProduct from "../Dasshboard/Shellar/MyProduct/MyProduct";
+import ShallerRoute from "./ShallerRoute";
+import AdminRoute from "./AdminRoute";
+import BuyerRoute from "./BuyerRoute";
+import ReportedProducts from "../Dasshboard/Admin/ReportedProduct/ReportedProducts";
 
 const route = createBrowserRouter([
   {
@@ -75,35 +79,73 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/dashboard/wishlist",
-        element: <Wishlish></Wishlish>,
+        element: (
+          <BuyerRoute>
+            <Wishlish></Wishlish>
+          </BuyerRoute>
+        ),
       },
       {
         path: "/dashboard/myorder",
-        element: <MyOrder></MyOrder>,
+        element: (
+          <BuyerRoute>
+            <MyOrder></MyOrder>
+          </BuyerRoute>
+        ),
       },
       {
         path: "/dashboard/allbuyer",
-        element: <AllBuyer></AllBuyer>,
+        element: (
+          <AdminRoute>
+            <AllBuyer></AllBuyer>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/allshellar",
-        element: <AllShellar></AllShellar>,
+        element: (
+          <AdminRoute>
+            <AllShellar></AllShellar>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/alluser",
-        element: <AllUser></AllUser>,
+        element: (
+          <AdminRoute>
+            <AllUser></AllUser>
+          </AdminRoute>
+        ),
       },
       {
+        path: "/dashboard/reportedproduct",
+        element: <AdminRoute>
+          <ReportedProducts></ReportedProducts>
+        </AdminRoute>
+      },  
+      {
         path: "/dashboard/addproduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <ShallerRoute>
+            <AddProduct></AddProduct>
+          </ShallerRoute>
+        ),
       },
       {
         path: "/dashboard/mybuyer",
-        element: <MyBuyer></MyBuyer>,
+        element: (
+          <ShallerRoute>
+            <MyBuyer></MyBuyer>
+          </ShallerRoute>
+        ),
       },
       {
         path: "/dashboard/myproduct",
-        element: <MyProduct></MyProduct>,
+        element: (
+          <ShallerRoute>
+            <MyProduct></MyProduct>
+          </ShallerRoute>
+        ),
       },
       {
         path: "/dashboard/profile",

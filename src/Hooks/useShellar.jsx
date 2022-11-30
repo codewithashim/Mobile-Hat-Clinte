@@ -7,7 +7,7 @@ const useSeller = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:8000/users/seller/${user?.email}`)
+      fetch(`http://localhost:8000/users/sellers/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setIsSeller(data?.isSeller);
