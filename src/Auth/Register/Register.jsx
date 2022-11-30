@@ -26,8 +26,8 @@ const Register = () => {
     navigate("/");
   }
 
-  const saveUserInDB = (email, name, photoURL, rols) => {
-    const user = { email, name, photoURL, rols };
+  const saveUserInDB = (email, name, photoURL, role) => {
+    const user = { email, name, photoURL, role };
     console.log(user);
     fetch("http://localhost:8000/users", {
       method: "POST",
@@ -58,11 +58,11 @@ const Register = () => {
         const profileInfo = {
           displayName: data.fullname,
           photoURL: data.photoURL,
-          rols: data.rols,
+          role: data.role,
         };
         updateUserDetails(profileInfo)
           .then(() => {
-            saveUserInDB(data.email, data.fullname, data.photoURL, data.rols);
+            saveUserInDB(data.email, data.fullname, data.photoURL, data.role);
           })
           .catch((error) => {
             console.log(error);
@@ -81,10 +81,10 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        const rols = "Buyer";
+        const role = "buyer";
         if (!user.email) {
-          saveUserInDB(user.email, user.displayName, user.photoURL, rols);
-        } 
+          saveUserInDB(user.email, user.displayName, user.photoURL, role);
+        }
         Swal.fire(
           "Succesfuly Login Done !",
           "You clicked the button!",
@@ -205,8 +205,8 @@ const Register = () => {
               <option disabled selected>
                 Select Your Rols
               </option>
-              <option>Buyer</option>
-              <option>Shellar</option>
+              <option>buyer</option>
+              <option>seller</option>
             </select>
             {errors.rols?.type === "required" && (
               <p role="alert" className="text-red-600 mt-1">
