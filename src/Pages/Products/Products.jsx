@@ -18,24 +18,6 @@ const Products = () => {
     },
   });
 
-  // const addtoWishList = (id) => {
-  //   fetch(`http://localhost:8000/wishlist/${id}`, {
-  //     method: "POST",
-  //     headers: {
-  //       authorization: `bearer ${localStorage.getItem("accesToken")}`,
-  //     },
-  //     body: JSON.stringify({ id }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.success) {
-  //         Swal.fire("Added Wishlist!", "You clicked the button!", "success");
-  //       }
-  //     });
-  //   refetch();
-  // };
-
   if (isLoading) {
     return <Loader></Loader>;
   }

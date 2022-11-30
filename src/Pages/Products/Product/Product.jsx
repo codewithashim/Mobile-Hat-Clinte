@@ -39,7 +39,7 @@ const Product = ({ product, refetch }) => {
       .then((data) => {
         if (data.sucess) {
           Swal.fire(
-            "Successfully Booked Now!",
+            "Successfully Added to WishList!",
             "You clicked the button!",
             "success"
           );

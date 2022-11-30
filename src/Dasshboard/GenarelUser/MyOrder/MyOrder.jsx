@@ -9,7 +9,7 @@ const MyOrder = () => {
   const { user } = useContext(AuthContext);
 
   const { data: myOrder = [], isLoading, refetch } = useQuery({
-    queryKey: ["apointmentOpction"],
+    queryKey: ["myOrder"],
     queryFn: async () => {
       const res = await fetch(
         `http://localhost:8000/bookings?email=${user?.email}`

@@ -7,7 +7,7 @@ import Register from "../Auth/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import Product from "../Pages/Products/Products";
 import ProductsCetagory from "../Pages/ProductsCetagory/ProductsCetagory";
-import Wishlish from "../Dasshboard/Wishlist/Wishlish";
+import Wishlish from "../Dasshboard/GenarelUser/Wishlist/Wishlish";
 import MyOrder from "../Dasshboard/GenarelUser/MyOrder/MyOrder";
 import PrivetRoute from "./PrivetRoute";
 import Profile from "../Dasshboard/Profile/Profile";
