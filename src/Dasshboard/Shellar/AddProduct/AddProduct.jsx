@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Swal } from "sweetalert2";
 import { AuthContext } from "../../../Context/UserContext";
 
 const AddProduct = () => {
