@@ -14,7 +14,6 @@ import AllBuyer from "../Dasshboard/Admin/AllBuyer/AllBuyer";
 import AllShellar from "../Dasshboard/Admin/AllShellar/AllShellar";
 import AllUser from "../Dasshboard/Admin/AllUser/AllUser";
 import AddProduct from "../Dasshboard/Shellar/AddProduct/AddProduct";
-import MyBuyer from "../Dasshboard/Shellar/MyBuyer/MyBuyer";
 import MyProduct from "../Dasshboard/Shellar/MyProduct/MyProduct";
 import ShallerRoute from "./ShallerRoute";
 import AdminRoute from "./AdminRoute";
@@ -126,14 +125,6 @@ const route = createBrowserRouter([
         element: (
           <ShallerRoute>
             <AddProduct></AddProduct>
-          </ShallerRoute>
-        ),
-      },
-      {
-        path: "/dashboard/mybuyer",
-        element: (
-          <ShallerRoute>
-            <MyBuyer></MyBuyer>
           </ShallerRoute>
         ),
       },

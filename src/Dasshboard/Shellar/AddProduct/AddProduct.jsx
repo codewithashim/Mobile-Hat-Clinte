@@ -47,7 +47,7 @@ const AddProduct = () => {
             product_name: data.product_name,
             product_price: data.product_price,
             spacification: data.description,
-            categoryName: data.product_cetegory,
+            category: data.product_cetegory,
             condition_type: data.condition_type,
             mobile_number: data.mobile_number,
             location: data.location,
