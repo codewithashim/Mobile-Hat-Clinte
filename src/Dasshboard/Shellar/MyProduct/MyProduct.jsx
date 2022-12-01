@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const MyProduct = () => {
-    return (
-        <section>
-                <h1>My Product comming........</h1>
-        </section>
-    );
+    
+
+  return (
+    <section>
+      <div>
+        <h1 className="font-bold text-2xl py-2">Add Product</h1>
+        <div className="divider"></div>
+      </div>
+
+    </section>
+  );
 };
 
 export default MyProduct;

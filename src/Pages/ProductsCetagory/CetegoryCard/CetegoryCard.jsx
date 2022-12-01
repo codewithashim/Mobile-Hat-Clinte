@@ -56,6 +56,29 @@ const CetegoryCard = ({ product }) => {
     console.log("add to wishlist");
   };
 
+  const hendelReportedItems = (id) => {
+    fetch(`http://localhost:8000/products/report/${id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        try {
+          Swal.fire(
+            "Successfully Reported!",
+            "You clicked the button!",
+            "success"
+          );
+        } catch (error) {
+          console.log(error);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.message}`,
+          });
+        }
+      });
+  };
+
   return (
     <div
       className="productCard card m-4 bg-base-100 shadow-xl"
@@ -91,7 +114,12 @@ const CetegoryCard = ({ product }) => {
             <Link className="btn btn-primary" onClick={() => addtoWishList()}>
               <FaHeart title="Wish List" className="text-2xl"></FaHeart>
             </Link>
-            <Link className="btn btn-primary">Report Product</Link>
+            <Link
+              className="btn btn-primary"
+              onClick={() => hendelReportedItems(_id)}
+            >
+              Report Product
+            </Link>
           </div>
         </div>
       </div>
