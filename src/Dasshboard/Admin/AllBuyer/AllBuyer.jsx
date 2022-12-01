@@ -45,7 +45,7 @@ const AllBuyer = () => {
   return (
     <section className="p-4">
       <div>
-        <h1 className="font-bold text-2xl py-2">All User</h1>
+        <h1 className="font-bold text-2xl py-2">All Buyer</h1>
         <div className="divider"></div>
       </div>
       <div>

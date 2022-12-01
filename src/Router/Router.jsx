@@ -10,7 +10,6 @@ import ProductsCetagory from "../Pages/ProductsCetagory/ProductsCetagory";
 import Wishlish from "../Dasshboard/GenarelUser/Wishlist/Wishlish";
 import MyOrder from "../Dasshboard/GenarelUser/MyOrder/MyOrder";
 import PrivetRoute from "./PrivetRoute";
-import Profile from "../Dasshboard/Profile/Profile";
 import AllBuyer from "../Dasshboard/Admin/AllBuyer/AllBuyer";
 import AllShellar from "../Dasshboard/Admin/AllShellar/AllShellar";
 import AllUser from "../Dasshboard/Admin/AllUser/AllUser";
@@ -119,10 +118,12 @@ const route = createBrowserRouter([
       },
       {
         path: "/dashboard/reportedproduct",
-        element: <AdminRoute>
-          <ReportedProducts></ReportedProducts>
-        </AdminRoute>
-      },  
+        element: (
+          <AdminRoute>
+            <ReportedProducts></ReportedProducts>
+          </AdminRoute>
+        ),
+      },
       {
         path: "/dashboard/addproduct",
         element: (
@@ -146,10 +147,6 @@ const route = createBrowserRouter([
             <MyProduct></MyProduct>
           </ShallerRoute>
         ),
-      },
-      {
-        path: "/dashboard/profile",
-        element: <Profile></Profile>,
       },
     ],
   },
