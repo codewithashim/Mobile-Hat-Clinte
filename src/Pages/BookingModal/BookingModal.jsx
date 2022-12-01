@@ -32,7 +32,7 @@ const BookingModal = ({ product_name, _id, refetch, product, img, price }) => {
       status,
     };
 
-    fetch("http://localhost:8000/bookings", {
+    fetch("https://mobile-hat-server.vercel.app/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

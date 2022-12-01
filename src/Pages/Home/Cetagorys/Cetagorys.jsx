@@ -5,7 +5,7 @@ const Cetagorys = () => {
   const [cetagorys, setCetagorys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/category")
+    fetch("https://mobile-hat-server.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setCetagorys(data));
   }, []);

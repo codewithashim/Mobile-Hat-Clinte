@@ -12,7 +12,7 @@ const MyProduct = () => {
     queryKey: ["myWishList"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/myproducts?email=${user?.email}`
+        `https://mobile-hat-server.vercel.app/myproducts?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -20,7 +20,7 @@ const MyProduct = () => {
   });
 
   const hendelDeleteProduct = (id) => {
-    fetch(`http://localhost:8000/myproducts/${id}`, {
+    fetch(`https://mobile-hat-server.vercel.app/myproducts/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

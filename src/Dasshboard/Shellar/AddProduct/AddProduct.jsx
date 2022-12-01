@@ -10,6 +10,7 @@ const AddProduct = () => {
     register,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
   const imgHostingKey = process.env.REACT_APP_imgbb_Key;
   const { user } = useContext(AuthContext);
@@ -44,7 +45,7 @@ const AddProduct = () => {
           };
           console.log(addProduct);
 
-          fetch("http://localhost:8000/products", {
+          fetch("https://mobile-hat-server.vercel.app/products", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -52,9 +53,8 @@ const AddProduct = () => {
             body: JSON.stringify(addProduct),
           })
             .then((res) => res.json())
-            .then((data) => {
-       
-              Swal.fire("Adde Product!", "You clicked the button!", "success");
+            .then((result) => {
+              alert("Product Added Succesfully");
               navigate("/dashboard/myproduct");
             });
         }

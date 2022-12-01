@@ -29,7 +29,7 @@ const Product = ({ product, refetch }) => {
       img,
     };
 
-    fetch(`http://localhost:8000/wishlist/`, {
+    fetch(`https://mobile-hat-server.vercel.app/wishlist/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const Product = ({ product, refetch }) => {
   };
 
   const hendelReportedItems = (id) => {
-    fetch(`http://localhost:8000/products/report/${id}`, {
+    fetch(`https://mobile-hat-server.vercel.app/products/report/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

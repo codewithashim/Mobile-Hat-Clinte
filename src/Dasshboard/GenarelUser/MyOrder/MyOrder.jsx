@@ -11,7 +11,7 @@ const MyOrder = () => {
     queryKey: ["myOrder"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/bookings?email=${user?.email}`
+        `https://mobile-hat-server.vercel.app/bookings?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -26,7 +26,7 @@ const MyOrder = () => {
       product: myOrder,
     };
 
-    fetch("http://localhost:8000/advatise", {
+    fetch("https://mobile-hat-server.vercel.app/advatise", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

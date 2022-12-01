@@ -20,7 +20,7 @@ const AdvatiseCard = ({ product, refetch }) => {
       img,
     };
 
-    fetch(`http://localhost:8000/wishlist/`, {
+    fetch(`https://mobile-hat-server.vercel.app/wishlist/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

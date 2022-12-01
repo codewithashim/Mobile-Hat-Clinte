@@ -7,7 +7,7 @@ const useSeller = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:8000/users/sellers/${user?.email}`)
+      fetch(`https://mobile-hat-server.vercel.app/users/sellers/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setIsSeller(data?.isSeller);

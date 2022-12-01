@@ -55,7 +55,7 @@ const route = createBrowserRouter([
       {
         path: "/category/:categoryName",
         loader: ({ params }) => {
-          return fetch(`http://localhost:8000/category/${params.categoryName}`);
+          return fetch(`https://mobile-hat-server.vercel.app/category/${params.categoryName}`);
         },
         element: <ProductsCetagory></ProductsCetagory>,
       },

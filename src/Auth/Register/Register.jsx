@@ -29,10 +29,11 @@ const Register = () => {
   const saveUserInDB = (email, name, photoURL, role) => {
     const user = { email, name, photoURL, role };
     console.log(user);
-    fetch("http://localhost:8000/users", {
+    fetch("https://mobile-hat-server.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        
       },
       body: JSON.stringify(user),
     })

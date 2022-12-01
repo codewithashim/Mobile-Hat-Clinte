@@ -8,7 +8,7 @@ const AllUser = () => {
   const { data: allUser = [], isLoading, refetch } = useQuery({
     queryKey: ["allUser"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:8000/users");
+      const res = await fetch("https://mobile-hat-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
@@ -16,7 +16,7 @@ const AllUser = () => {
   const userData = allUser?.data;
 
   const hendelDelete = (id) => {
-    fetch(`http://localhost:8000/users/${id}`, {
+    fetch(`https://mobile-hat-server.vercel.app/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

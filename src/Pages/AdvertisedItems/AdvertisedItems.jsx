@@ -8,7 +8,7 @@ const AdvertisedItems = () => {
   const { data: advatiseProduct = [], isLoading, refetch } = useQuery({
     queryKey: ["apointmentOpction"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:8000/advatise`);
+      const res = await fetch(`https://mobile-hat-server.vercel.app/advatise`);
       const data = await res.json();
       return data;
     },

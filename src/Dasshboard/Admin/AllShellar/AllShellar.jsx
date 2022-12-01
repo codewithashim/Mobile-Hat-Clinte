@@ -8,7 +8,7 @@ const AllShellar = () => {
   const { data: totalSheller = [], isLoading, refetch } = useQuery({
     queryKey: ["totalSheller"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:8000/users/seller/`);
+      const res = await fetch(`https://mobile-hat-server.vercel.app/users/seller/`);
       const data = await res.json();
       return data;
     },
@@ -17,7 +17,7 @@ const AllShellar = () => {
   console.log(shellerData);
 
   const hendelDelete = (id) => {
-    fetch(`http://localhost:8000/users/seller/${id}`, {
+    fetch(`https://mobile-hat-server.vercel.app/users/seller/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
