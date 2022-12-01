@@ -10,22 +10,8 @@ const AddProduct = () => {
     register,
     formState: { errors },
   } = useForm();
-
   const navigate = useNavigate();
-
   const imgHostingKey = process.env.REACT_APP_imgbb_Key;
-
-  console.log(imgHostingKey);
-
-  // const { data: addProduct, isLoading } = useQuery({
-  //   queryKey: ["addProduct"],
-  //   queryFn: async () => {
-  //     const res = await fetch(``);
-  //     const data = await res.json();
-  //     return data;
-  //   },
-  // });
-
   const { user } = useContext(AuthContext);
 
   const hendelAddProduct = (data) => {
@@ -47,7 +33,7 @@ const AddProduct = () => {
             product_name: data.product_name,
             product_price: data.product_price,
             spacification: data.description,
-            category: data.product_cetegory,
+            categoryName: data.product_cetegory,
             condition_type: data.condition_type,
             mobile_number: data.mobile_number,
             location: data.location,
@@ -68,15 +54,8 @@ const AddProduct = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-
-              if (data) {
-                Swal.fire(
-                  "Doctors Added Sucesfully!",
-                  "You clicked the button!",
-                  "success"
-                );
-                navigate("/dashboard/myproduct");
-              }
+              Swal.fire("Adde Product!", "You clicked the button!", "success");
+              navigate("/dashboard/myproduct");
             });
         }
       });

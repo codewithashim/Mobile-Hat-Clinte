@@ -19,6 +19,8 @@ import ShallerRoute from "./ShallerRoute";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import ReportedProducts from "../Dasshboard/Admin/ReportedProduct/ReportedProducts";
+import WellComeUser from "../Dasshboard/WellComeUser/WellComeUser";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const route = createBrowserRouter([
   {
@@ -41,6 +43,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/login",
@@ -72,6 +75,10 @@ const route = createBrowserRouter([
       </PrivetRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: <WellComeUser></WellComeUser>,
+      },
       {
         path: "/dashboard/wishlist",
         element: (
