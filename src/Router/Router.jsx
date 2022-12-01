@@ -21,6 +21,7 @@ import BuyerRoute from "./BuyerRoute";
 import ReportedProducts from "../Dasshboard/Admin/ReportedProduct/ReportedProducts";
 import WellComeUser from "../Dasshboard/WellComeUser/WellComeUser";
 import Blogs from "../Pages/Blogs/Blogs";
+import Contact from "../Pages/Contact/Contact";
 
 const route = createBrowserRouter([
   {
@@ -37,9 +38,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/contact",
-      },
-      {
-        path: "/about",
+        element: <Contact></Contact>,
       },
       {
         path: "/blogs",

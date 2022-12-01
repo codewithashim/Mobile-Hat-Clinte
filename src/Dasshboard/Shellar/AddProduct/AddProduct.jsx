@@ -53,7 +53,7 @@ const AddProduct = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+       
               Swal.fire("Adde Product!", "You clicked the button!", "success");
               navigate("/dashboard/myproduct");
             });
@@ -256,5 +256,4 @@ const AddProduct = () => {
     </section>
   );
 };
-
 export default AddProduct;
