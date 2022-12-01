@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaCartPlus, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/UserContext";
@@ -83,13 +84,14 @@ const CetegoryCard = ({ product }) => {
                 // disabled={.length === 0}
                 className="btn btn-primary"
               >
-                Book Now
+                <FaCartPlus title="Book Now" className="text-2xl"></FaCartPlus>
               </label>
             </div>
 
             <Link className="btn btn-primary" onClick={() => addtoWishList()}>
-              Add Wishlist
+              <FaHeart title="Wish List" className="text-2xl"></FaHeart>
             </Link>
+            <Link className="btn btn-primary">Report Product</Link>
           </div>
         </div>
       </div>

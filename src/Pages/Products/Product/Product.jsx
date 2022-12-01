@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaCartPlus, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/UserContext";
@@ -14,11 +15,8 @@ const Product = ({ product, refetch }) => {
     img,
   } = product;
 
-  const HendlBookNow = () => {
-    console.log("book now");
-  };
-
   const { user } = useContext(AuthContext);
+
   const addtoWishList = () => {
     const email = user?.email;
     const wishList = {
@@ -60,6 +58,30 @@ const Product = ({ product, refetch }) => {
     console.log("add to wishlist");
   };
 
+  const hendelReportedItems = (id) => {
+    fetch(`http://localhost:8000/products/report/${id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        try {
+          Swal.fire(
+            "Successfully Reported!",
+            "You clicked the button!",
+            "success"
+          );
+          refetch();
+        } catch (error) {
+          console.log(error);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.message}`,
+          });
+        }
+      });
+  };
+
   return (
     <>
       <div className="card m-4 bg-base-100 shadow-xl">
@@ -81,16 +103,22 @@ const Product = ({ product, refetch }) => {
             <p>Posting Time : {posting_time}</p>
             <div className="flex gap-2 items-center">
               <div>
-                <label
-                  htmlFor="bookignModal"
-                  onClick={() => HendlBookNow()}
-                  className="btn btn-primary"
-                >
-                  Book Now
+                <label htmlFor="bookignModal" className="btn btn-primary">
+                  <FaCartPlus
+                    title="Book Now"
+                    className="text-2xl"
+                  ></FaCartPlus>
                 </label>
               </div>
               <Link className="btn btn-primary" onClick={() => addtoWishList()}>
-                Add Wishlist
+                <FaHeart title="Wish List" className="text-2xl"></FaHeart>
+              </Link>
+
+              <Link
+                className="btn btn-primary"
+                onClick={() => hendelReportedItems(_id)}
+              >
+                Report Product
               </Link>
             </div>
           </div>
